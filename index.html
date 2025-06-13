@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login con Barra de Carga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen font-sans relative">
+    <!-- Barra de Carga -->
+    <div id="barraCarga"></div>
+
+    <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-xl overflow-hidden max-w-screen-lg w-full"> <!-- Aumentado a max-w-screen-lg (aprox. 80%) -->
+        <!-- Sección del Formulario (Izquierda) -->
+        <div class="md:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Iniciar Sesión</h2>
+
+            <form id="formularioLogin">
+                <div class="mb-5">
+                    <label for="campoUsuario" class="block text-gray-700 text-base font-semibold mb-2">Usuario:</label>
+                    <input type="text" id="campoUsuario" name="usuario"
+                           class="shadow-sm appearance-none border rounded w-full py-3.5 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                           placeholder="Ingresa tu usuario">
+                </div>
+
+                <div class="mb-7 relative">
+                    <label for="campoContrasena" class="block text-gray-700 text-base font-semibold mb-2">Contraseña:</label>
+                    <input type="password" id="campoContrasena" name="contrasena"
+                           class="shadow-sm appearance-none border rounded w-full py-3.5 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                           placeholder="********">
+                    <span class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer mt-9" id="toggleContrasena">
+                        <i class="far fa-eye text-gray-500 hover:text-gray-700 text-xl"></i>
+                    </span>
+                </div>
+
+                <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-md w-full text-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Entrar
+                </button>
+            </form>
+        </div>
+
+        <!-- Sección de la Imagen (Derecha) -->
+        <div class="md:w-1/2 flex-shrink-0">
+            <img src="img/pajarito.jpg" alt="Imagen de fondo" class="w-full h-full object-cover rounded-tr-lg rounded-br-lg md:rounded-none">
+        </div>
+    </div>
+
+    <!-- Modal de Mensaje (sin cambios, se controla desde JS) -->
+    <div id="modalMensaje" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-sm text-center relative">
+            <button class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold" onclick="cerrarModal()">
+                &times;
+            </button>
+            <h3 id="tituloModal" class="text-xl font-bold mb-4"></h3>
+            <p id="contenidoModal" class="text-gray-700 mb-6"></p>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors" onclick="cerrarModal()">
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
