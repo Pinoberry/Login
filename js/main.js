@@ -7,7 +7,6 @@ const tituloModal = document.getElementById("tituloModal");
 const contenidoModal = document.getElementById("contenidoModal");
 const barraCarga = document.getElementById("barraCarga");
 
-
 function mostrarBarraCarga() {
   barraCarga.style.width = "0%";
   barraCarga.classList.add("visible");
@@ -16,7 +15,6 @@ function mostrarBarraCarga() {
   const intervalo = setInterval(() => {
     progreso += 10;
     if (progreso <= 90) {
-
       barraCarga.style.width = `${progreso}%`;
     } else {
       clearInterval(intervalo);
@@ -24,14 +22,13 @@ function mostrarBarraCarga() {
   }, 100);
 }
 
-
 function ocultarBarraCarga() {
   barraCarga.style.width = "100%";
   barraCarga.classList.add("completa");
   setTimeout(() => {
     barraCarga.classList.remove("visible", "completa");
     barraCarga.style.width = "0%";
-  }, 500); 
+  }, 500);
 }
 
 toggleContrasena.addEventListener("click", function () {
@@ -45,18 +42,16 @@ toggleContrasena.addEventListener("click", function () {
 formularioLogin.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
-  mostrarBarraCarga(); 
+  mostrarBarraCarga();
 
   const usuario = campoUsuario.value.trim();
   const contrasena = campoContrasena.value.trim();
 
-
   modalMensaje.classList.add("hidden");
-
 
   setTimeout(() => {
     if (!usuario || !contrasena) {
-      ocultarBarraCarga(); 
+      ocultarBarraCarga();
       mostrarModal(
         "Error de Inicio de Sesión",
         "Por favor, introduce tu usuario y contraseña.",
@@ -65,25 +60,22 @@ formularioLogin.addEventListener("submit", function (evento) {
       return;
     }
 
-
     if (usuario === "admin" && contrasena === "password123") {
-      ocultarBarraCarga(); 
+      ocultarBarraCarga();
       mostrarModal(
         "¡Bienvenido!",
         `Hola, ${usuario}. Has iniciado sesión exitosamente.`,
         "exito"
       );
-
-
     } else {
-      ocultarBarraCarga(); 
+      ocultarBarraCarga();
       mostrarModal(
         "Error de Autenticación",
         "Usuario o contraseña incorrectos.",
         "error"
       );
     }
-  }, 1500); 
+  }, 1500);
 });
 
 function mostrarModal(titulo, contenido, tipo) {

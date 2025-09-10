@@ -32,14 +32,23 @@ Login/
 - [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
 - [Font Awesome](https://fontawesome.com/) - Iconos
 
+## Credenciales de Acceso
+
+Utiliza las siguientes credenciales para iniciar sesión:
+
+```
+Usuario: admin
+Contraseña: password123
+```
+
 ## Cómo Usar
 
 1. Clona o descarga el repositorio
 2. Abre el archivo `index.html` en tu navegador
+3. Ingresa las credenciales mostradas arriba
 3. Ingresa usuario y contraseña
 4. Haz clic en "Entrar" para ver la animación de carga
 
 ## Personalización
 
 Puedes personalizar los colores y estilos modificando las clases de Tailwind en el archivo `index.html` o añadiendo estilos personalizados en `css/style.css`.
-
